@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://change-this-to-the-site-you-are-testing/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--Get OS name-->
+<!--//-->
+<!--// this will store name of your Operational System-->
+<!--// example values could be "Windows", "Linux", etc.-->
+<!--//-->
+<tr>
+	<td>storeExpression</td>
+	<td>javascript{ var OSName=&quot;Unknown&quot;; if (navigator.platform.indexOf(&quot;Win&quot;)!=-1) OSName=&quot;Windows&quot;; if (navigator.platform.indexOf(&quot;Mac&quot;)!=-1) OSName=&quot;MacOS&quot;; if (navigator.platform.indexOf(&quot;Linux&quot;)!=-1) OSName=&quot;Linux&quot;; OSName }</td>
+	<td>OSName</td>
+</tr>
+<!--//-->
+<!--// could be used for decision where to put screenshots-->
+<!--// for making decisions in Slenium IDE the "Selenium IDE - SelBlocks" plugin is necessary-->
+<!--//-->
+<!--Path for storing screenshot-->
+<tr>
+	<td>if</td>
+	<td>storedVars['OSName'] == &quot;Linux&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>~/Documents/Projects/Projectname/scrn/</td>
+	<td>scrnPath</td>
+</tr>
+<tr>
+	<td>elseIf</td>
+	<td>storedVars['OSName'] == &quot;Windows&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>D:\Documents\Projects\Projectname\scrn\</td>
+	<td>scrnPath</td>
+</tr>
+<tr>
+	<td>endIf</td>
+	<td></td>
+	<td></td>
+</tr>
+<!--//-->
+<!--// For taking screenshots a "Selenium IDE: Screen Capture Extension" is necessary-->
+<!--Screenshot-->
+<tr>
+	<td>captureEntirePageScreenshot</td>
+	<td>${scrnPath}${date}_screenshot.png</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

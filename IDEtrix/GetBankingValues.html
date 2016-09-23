@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://change-this-to-the-site-you-are-testing/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--Get random banking values-->
+<!--//-->
+<!--// this will store random values used in CZ banking-->
+<!--//-->
+<!--Random variable symbol-->
+<tr>
+	<td>store</td>
+	<td>javascript{ /*random n10*/ Math.floor(Math.random()*Math.pow(10,Math.random()*10))}</td>
+	<td>variableSymbol</td>
+</tr>
+<!--Random constant symbol-->
+<!--// desinged not to contain some values, which are excluded by defined restricted field-->
+<tr>
+	<td>store</td>
+	<td>javascript{ /*random n10 excl restricted*/ var restricted=[0,5,6,51,1178,2178,3178]; result=Math.floor(Math.random()*Math.pow(10,Math.random()*10)); do {result = result +1;} while (restricted.indexOf(result)&gt; -1); result }</td>
+	<td>constantSymbol</td>
+</tr>
+<!--Random specific symbol-->
+<tr>
+	<td>store</td>
+	<td>javascript{ /*random n10*/ Math.floor(Math.random()*Math.pow(10,Math.random()*10))}</td>
+	<td>specificSymbol</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://change-this-to-the-site-you-are-testing/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--Get random amount-->
+<!--//-->
+<!--// this will store random amount number in specified size and format "n.n" greater than zero-->
+<!--// number of places before and after delimiter, delimiter itself and condition could be changed-->
+<!--//-->
+<tr>
+	<td>store</td>
+	<td>javascript{ /*random number &quot;0000.00&quot; */ f1=4; f2=2; dl=&quot;.&quot;; do { result=Math.floor(Math.random()*Math.pow(10,Math.random()*f1))+dl+Math.floor(Math.random()*Math.pow(10,Math.random()*f2)); } while (result == '0.0'); result; }</td>
+	<td>amount</td>
+</tr>
+</tbody></table>
+</body>
+</html>

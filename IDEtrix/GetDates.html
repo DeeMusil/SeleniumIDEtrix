@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://change-this-to-the-site-you-are-testing/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--Get Dates-->
+<!--//-->
+<!--// this will store usable date strings to be placed in test application as:-->
+<!--// - Today in various formats,  - Next working day or  - Working day in next year-->
+<!--//-->
+<!--date - todays date in YYYMMDD format-->
+<tr>
+	<td>storeExpression</td>
+	<td>javascript{today=new Date();pad=&quot;00&quot;;tyear=&quot;&quot;+today.getFullYear();tmonth=&quot;&quot;+(today.getMonth()+1);tday=&quot;&quot;+today.getDate(); tyear + pad.substring(0,2-tmonth.length)+tmonth + pad.substring(0,2-tday.length)+tday}</td>
+	<td>date</td>
+</tr>
+<!--dateCz - todays date in DD.MM.YYYY format-->
+<tr>
+	<td>storeExpression</td>
+	<td>javascript{today=new Date();pad=&quot;00&quot;;tyear=&quot;&quot;+today.getFullYear();tmonth=&quot;&quot;+(today.getMonth()+1);tday=&quot;&quot;+today.getDate(); pad.substring(0,2-tday.length)+tday+&quot;.&quot;+pad.substring(0,2-tmonth.length)+tmonth+&quot;.&quot;+tyear}</td>
+	<td>dateCz</td>
+</tr>
+<!--dateCzNatural - todays date in D.M.YYYY format-->
+<tr>
+	<td>storeExpression</td>
+	<td>javascript{today=new Date();pad=&quot;00&quot;;tyear=&quot;&quot;+today.getFullYear();tmonth=&quot;&quot;+(today.getMonth()+1);tday=&quot;&quot;+today.getDate(); tday+&quot;.&quot;+tmonth+&quot;.&quot;+tyear }</td>
+	<td>dateCzNatural</td>
+</tr>
+<!--nextWeekDateCz - today + 1 week date in DD.MM.YYYY format-->
+<tr>
+	<td>storeExpression</td>
+	<td>javascript{today=new Date();pad=&quot;00&quot;;nextW=new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000); pad=&quot;00&quot;;tyear=&quot;&quot;+nextW.getFullYear();tmonth=&quot;&quot;+(nextW.getMonth()+1);tday=&quot;&quot;+nextW.getDate(); pad.substring(0,2-tday.length)+tday+&quot;.&quot;+pad.substring(0,2-tmonth.length)+tmonth+&quot;.&quot;+tyear }</td>
+	<td>nextWeekDateCz</td>
+</tr>
+<!--nextWdayCz - next working day in DD.MM.YYYY format, valid for Czech Republic-->
+<!--// this proc has two fields with "restricted" dates, regular and iregular holidays-->
+<!--// modify the list to be valid in target/tested country-->
+<tr>
+	<td>storeExpression</td>
+	<td>javascript{ today=new Date(); pad=&quot;00&quot;; restricted1=['24.12.'|'25.12.'|'26.12.'|'01.01.'|'01.05.'|'08.05.'|'05.07.'|'06.07.'|'28.09.'|'28.10.'|'17.11.']; restricted2=['28.03.2016'|'17.04.2017'|'02.04.2018']; adate = today; do { adate=new Date(adate.getTime() + 1 * 24 * 60 * 60 * 1000); tyear=&quot;&quot;+adate.getFullYear(); tmonth=&quot;&quot;+(adate.getMonth()+1); tday=&quot;&quot;+adate.getDate(); strdate = pad.substring(0,2-tday.length)+tday+&quot;.&quot;+pad.substring(0,2-tmonth.length)+tmonth+&quot;.&quot;+tyear; } while (/restricted1/.test(strdate.substring(0,6)) | /restricted2/.test(strdate) | adate.getDay()==0 | adate.getDay()==6 ); strdate}</td>
+	<td>nextWdayCz</td>
+</tr>
+<!--nextYearWdayCz - working day in today + 1 year in DD.MM.YYYY format, valid for Czech Republic-->
+<!--// used same rules as in nextWdayCz-->
+<tr>
+	<td>storeExpression</td>
+	<td>javascript{ today=new Date(); pad=&quot;00&quot;; restricted1=['24.12.'|'25.12.'|'26.12.'|'01.01.'|'01.05.'|'08.05.'|'05.07.'|'06.07.'|'28.09.'|'28.10.'|'17.11.']; restricted2=['28.03.2016'|'17.04.2017'|'02.04.2018']; adate = new Date(today.getTime()+365*24*60*60*1000); do { adate=new Date(adate.getTime() + 1*24*60*60*1000); tyear=&quot;&quot;+adate.getFullYear(); tmonth=&quot;&quot;+(adate.getMonth()+1); tday=&quot;&quot;+adate.getDate(); strdate = pad.substring(0,2-tday.length)+tday+&quot;.&quot;+pad.substring(0,2-tmonth.length)+tmonth+&quot;.&quot;+tyear; } while (/restricted1/.test(strdate.substring(0,6)) | /restricted2/.test(strdate) | adate.getDay()==0 | adate.getDay()==6 ); strdate}</td>
+	<td>nextYearWdayCz</td>
+</tr>
+</tbody></table>
+</body>
+</html>
